@@ -1,0 +1,13 @@
+{
+  "main.css": "/TaskManager/static/css/main.3c4cbdc5.chunk.css",
+  "main.js": "/TaskManager/static/js/main.a486366e.chunk.js",
+  "main.js.map": "/TaskManager/static/js/main.a486366e.chunk.js.map",
+  "static/js/1.d8537f1a.chunk.js": "/TaskManager/static/js/1.d8537f1a.chunk.js",
+  "static/js/1.d8537f1a.chunk.js.map": "/TaskManager/static/js/1.d8537f1a.chunk.js.map",
+  "runtime~main.js": "/TaskManager/static/js/runtime~main.d56022c9.js",
+  "runtime~main.js.map": "/TaskManager/static/js/runtime~main.d56022c9.js.map",
+  "static/css/main.3c4cbdc5.chunk.css.map": "/TaskManager/static/css/main.3c4cbdc5.chunk.css.map",
+  "index.html": "/TaskManager/index.html",
+  "precache-manifest.c37b8616b56bce04bfd29e662246672e.js": "/TaskManager/precache-manifest.c37b8616b56bce04bfd29e662246672e.js",
+  "service-worker.js": "/TaskManager/service-worker.js"
+}
