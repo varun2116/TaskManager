@@ -60,7 +60,7 @@
   min-height: 40px;
 }
 
-.title {
+.title, .modal-title {
   padding: 10px;
   white-space: nowrap;
   text-overflow: ellipsis;
