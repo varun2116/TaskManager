@@ -1,5 +1,10 @@
 # Task Manager
 
+* To Install the packages
+```
+    npm install
+```
+
 * To run on the local
 ```
     npm start
