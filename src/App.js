@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h3 class="text-center">Task manager</h3>
+          <h3 className="text-center">Task manager</h3>
           <Board />
       </div>
     );

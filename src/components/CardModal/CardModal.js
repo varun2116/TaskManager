@@ -10,11 +10,11 @@ class CardModal extends Component {
     }
   }
   render() {
-    const { id, title, desc, isEditable, fromList, toggleModal, } = this.props;
+    const { id, title, desc, isEditable, fromList, toggleModal, deleteModal } = this.props;
     return (
       <Modal show={isEditable} onHide={(e) => (toggleModal(id, fromList))}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{title} Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="form">
@@ -26,8 +26,9 @@ class CardModal extends Component {
               <label>Description</label>
               <textarea type="text" ref="editDesc" className="form-control" defaultValue={desc}></textarea>
             </div>
-            <div className="form-group">
-              <Button bsStyle="primary" onClick={(e) => {this.clickHandler(e)}}>Edit</Button>
+            <div className="form-group text-center">
+              <Button bsStyle="primary" className="m10" onClick={(e) => {this.clickHandler(e)}}>Edit</Button>
+              <Button bsStyle="danger" className="m10" onClick={(e) => {e.preventDefault(); return deleteModal(fromList)}}>Delete</Button>
             </div>
           </form>
         </Modal.Body>

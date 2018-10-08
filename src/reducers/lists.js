@@ -8,6 +8,7 @@ import {
   DROP_CARD,
   TOGGLE_MODAL,
   EDIT_CARD,
+  DELETE_CARD,
 } from '../constants/actionTypes';
 
 export default function reducer(state = [], action){
@@ -95,7 +96,12 @@ export default function reducer(state = [], action){
             });
           }
           return ele;
-        })
+        });
+      case DELETE_CARD:
+        let prnt = state[action.pid];
+        prnt.cardCount--;
+        prnt.cards.splice(action.id, 1);
+        return state;
       default:
           return state;
     }

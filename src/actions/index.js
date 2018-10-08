@@ -9,6 +9,7 @@ import {
   DROP_CARD,
   TOGGLE_MODAL,
   EDIT_CARD,
+  DELETE_CARD,
 } from '../constants/actionTypes.js';
 
 let nextListId = 3;
@@ -89,5 +90,13 @@ export const editModal = (pid, payload) => (
     type: EDIT_CARD,
     pid,
     payload
+  }
+);
+
+export const deleteModal = (pid, id) => (
+  {
+    type: DELETE_CARD,
+    pid,
+    id
   }
 )

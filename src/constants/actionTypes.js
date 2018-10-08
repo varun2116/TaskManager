@@ -9,3 +9,4 @@ export const DRAG_ENTER = 'DRAG_ENTER';
 export const DROP_CARD = 'DROP_CARD';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const EDIT_CARD = 'EDIT_CARD';
+export const DELETE_CARD = 'DELETE_CARD';

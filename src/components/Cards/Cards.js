@@ -25,7 +25,7 @@ class Cards extends Component {
   }
 
   render() {
-    const { cards, fromListIdx, isDragOver, toggleModal, editModal, } = this.props;
+    const { cards, fromListIdx, isDragOver, toggleModal, editModal, deleteModal } = this.props;
     return (
       <div className="cards" onDragOver={(e) => (e.preventDefault())} onDrop={(e) => (this.onDrop(e))}
         onDragEnter={(e) => (this.dragEnter(e))}>
@@ -40,7 +40,8 @@ class Cards extends Component {
                   <div className="title">{ele.title}</div>
               </a>
               <CardModal {...ele} fromList={fromListIdx} toggleModal={(id, pid) => (toggleModal(id, pid))}
-                editModal={(pid, payload) => (editModal(pid, payload))} />
+                editModal={(pid, payload) => (editModal(pid, payload))}
+                deleteModal={(pid) => (deleteModal(pid, idx))} />
             </div>
           )
         )}
@@ -61,6 +62,7 @@ Cards.propTypes = {
   dragEnter: PropTypes.func,
   toggleModal: PropTypes.func,
   editModal: PropTypes.func,
+  deleteModal: PropTypes.func,
 };
 
 export default Cards;

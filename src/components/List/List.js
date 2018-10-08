@@ -5,7 +5,18 @@ import AddComponent from '../AddComponent/AddComponent';
 
 class List extends Component {
   render(){
-    const { lists, addCard, toggleForm, dragStart, dragEnd, dragEnter, dropCard, toggleModal, editModal, } = this.props;
+    const {
+      lists,
+      addCard,
+      toggleForm,
+      dragStart,
+      dragEnd,
+      dragEnter,
+      dropCard,
+      toggleModal,
+      editModal,
+      deleteModal
+    } = this.props;
     return (
       lists.map((ele, idx) =>
         (<div key={ele.id} className="column">
@@ -16,7 +27,8 @@ class List extends Component {
             </div>
             <Cards fromListIdx={idx} isDragOver={ele.isDragOver} cards={ele.cards || []} dragStart={(id, pid) => dragStart(id, pid)}
               dragEnd={(id, pid) => dragEnd(id, pid)} dragEnter={(id) => dragEnter(id)}  dropCard={(id, prevPid, newPid) => dropCard(id, prevPid, newPid)}
-              toggleModal={(id, pid) => toggleModal(id, pid)} editModal={(pid, payload) => editModal(pid, payload)} />
+              toggleModal={(id, pid) => toggleModal(id, pid)} editModal={(pid, payload) => editModal(pid, payload)}
+              deleteModal={(pid, id) => deleteModal(pid, id)} />
             <AddComponent isFromList={true} isShowForm={ele.showAddCardForm}
               onAddClick={(val) => addCard(val, ele.id)} onToggleForm={() => toggleForm(ele.id)} />
           </div>
@@ -36,6 +48,7 @@ List.propTypes = {
   dropCard: PropTypes.func,
   toggleModal: PropTypes.func,
   editModal: PropTypes.func,
+  deleteModal: PropTypes.func,
 };
 
 export default List;
