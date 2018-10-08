@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CardModal from '../CardModal/CardModal';
 
 class Cards extends Component {
   onDragStart = (e, id, pid) => {
@@ -24,17 +25,23 @@ class Cards extends Component {
   }
 
   render() {
-    const { cards, fromListIdx, dropCard, dragLeave, dragEnter, isDragOver } = this.props;
+    const { cards, fromListIdx, isDragOver, toggleModal, editModal, } = this.props;
     return (
       <div className="cards" onDragOver={(e) => (e.preventDefault())} onDrop={(e) => (this.onDrop(e))}
         onDragEnter={(e) => (this.dragEnter(e))}>
         {cards.map((ele, idx) =>
           (
-            <a className={"card " + (ele.isDragging && 'dragging')} draggable
-              onDragEnd={(e) => (this.onDragEnd(e, idx, fromListIdx))}
-              onDragStart={(e) => (this.onDragStart(e, idx, fromListIdx))}  key={ele.id}>
-              {ele.title}
-            </a>
+            <div key={ele.id}>
+              <a className={"card " + (ele.isDragging && 'dragging')} draggable
+                onDragEnd={(e) => (this.onDragEnd(e, idx, fromListIdx))}
+                onDragStart={(e) => (this.onDragStart(e, idx, fromListIdx))}
+                onClick={(e) => {e.preventDefault(); return toggleModal(ele.id, fromListIdx)}}
+                key={ele.id}>
+                  <div className="title">{ele.title}</div>
+              </a>
+              <CardModal {...ele} fromList={fromListIdx} toggleModal={(id, pid) => (toggleModal(id, pid))}
+                editModal={(pid, payload) => (editModal(pid, payload))} />
+            </div>
           )
         )}
         {isDragOver &&
@@ -52,7 +59,8 @@ Cards.propTypes = {
   dragLeave: PropTypes.func,
   isDragOver: PropTypes.bool,
   dragEnter: PropTypes.func,
-  dropCard: PropTypes.func,
+  toggleModal: PropTypes.func,
+  editModal: PropTypes.func,
 };
 
 export default Cards;

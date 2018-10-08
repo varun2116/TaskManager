@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://varun2116.github.io/TaskManager/",
   "dependencies": {
+    "immutable": "^3.8.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-bootstrap": "^0.32.4",
@@ -30,6 +31,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "gh-pages": "^2.0.1",
+    "sinon": "^6.3.5"
   }
 }

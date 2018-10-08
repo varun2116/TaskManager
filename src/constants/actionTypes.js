@@ -7,3 +7,5 @@ export const DRAG_START = 'DRAG_START';
 export const DRAG_END = 'DRAG_END';
 export const DRAG_ENTER = 'DRAG_ENTER';
 export const DROP_CARD = 'DROP_CARD';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const EDIT_CARD = 'EDIT_CARD';

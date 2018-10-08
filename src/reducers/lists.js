@@ -6,6 +6,8 @@ import {
   DRAG_END,
   DRAG_ENTER,
   DROP_CARD,
+  TOGGLE_MODAL,
+  EDIT_CARD,
 } from '../constants/actionTypes';
 
 export default function reducer(state = [], action){
@@ -18,9 +20,9 @@ export default function reducer(state = [], action){
       case ADD_CARD:
           return state.map((ele) => {
             if(ele.id === action.id){
-              ele.cards.push({id:action.cid, title: action.payload, desc:'', isDragging: false});
+              ele.cards.push({id:action.cid, title: action.payload, desc:'', isEditable:false, isDragging: false});
               ele.cardCount++;
-              ele.showAddCardForm = !ele.showAddCardForm;
+              ele.showAddCardForm = false;
             }
             return ele;
           });
@@ -68,6 +70,32 @@ export default function reducer(state = [], action){
           }
           return ele;
         });
+      case TOGGLE_MODAL:
+        return state.map((ele, idx) => {
+          if(idx === action.pid){
+            ele.cards.map((card) => {
+              if(card.id === action.id){
+                card.isEditable = !card.isEditable
+              }
+              return card;
+            });
+          }
+          return ele;
+        });
+      case EDIT_CARD:
+        return state.map((ele, idx) => {
+          if(idx === action.pid){
+            ele.cards.map((card) => {
+              if(card.id === action.payload.id) {
+                card.title = action.payload.title;
+                card.desc = action.payload.desc;
+                card.isEditable = false;
+              }
+              return card;
+            });
+          }
+          return ele;
+        })
       default:
           return state;
     }

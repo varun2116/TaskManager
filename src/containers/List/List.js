@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import List from '../../components/List/List';
 import { connect } from 'react-redux';
-import { toggleForm, addCard, dragStart, dropCard, dragEnter, dragEnd } from '../../actions';
+import { toggleForm, addCard, dragStart, dropCard, dragEnter, dragEnd, toggleModal, editModal, } from '../../actions';
 
 export class ListCont extends Component {
   render(){
@@ -34,6 +34,12 @@ export const mapDispatchToProps = dispatch => {
         },
         dropCard: (id, prevPid, newPid) => {
             dispatch(dropCard(id, prevPid, newPid));
+        },
+        toggleModal: (id, pid) => {
+            dispatch(toggleModal(id, pid));
+        },
+        editModal: (pid, payload) => {
+            dispatch(editModal(pid, payload));
         }
     }
 }

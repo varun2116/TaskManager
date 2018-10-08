@@ -7,6 +7,8 @@ import {
   DRAG_END,
   DRAG_ENTER,
   DROP_CARD,
+  TOGGLE_MODAL,
+  EDIT_CARD,
 } from '../constants/actionTypes.js';
 
 let nextListId = 3;
@@ -73,3 +75,19 @@ export const dropCard = (id, prevPid, newPid) => (
     newPid
   }
 );
+
+export const toggleModal = (id, pid) => (
+  {
+    type: TOGGLE_MODAL,
+    id,
+    pid
+  }
+);
+
+export const editModal = (pid, payload) => (
+  {
+    type: EDIT_CARD,
+    pid,
+    payload
+  }
+)

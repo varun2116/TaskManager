@@ -8,7 +8,7 @@ const initialState = {
     {id: 2, name: "Done", showAddCardForm: false, isDragOver: false, cards:[], cardCount: 0}
   ]
 };
-//{id: 1, title: 'card1d', desc: '', isDragging: false}
+//{id: 1, title: 'card1d', desc: '', isEditable:false, isDragging: false}
 let store = createStore(reducer, initialState);
 
 export default store;

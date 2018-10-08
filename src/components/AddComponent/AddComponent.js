@@ -19,7 +19,7 @@ class AddComponent extends Component {
               <div className="form-group">
                 <input type="text" ref="cardInpt" className="form-control" />
               </div>
-              <Button bsStyle="primary" className="pull-left" onClick={() => {onAddClick(inVal.value); inVal.value = ""}}>Add List</Button>
+              <Button bsStyle="primary" className="pull-left" onClick={() => { inVal.value !== "" && onAddClick(inVal.value); inVal.value = ""}}>Add List</Button>
               <Button bsStyle="danger" className="pull-right" onClick={() => (onToggleForm()) }>Cancel</Button>
             </form>
           </div>
